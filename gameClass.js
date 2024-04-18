@@ -34,7 +34,7 @@ export class Game{
       // Controls
       this.controls = new OrbitControls(this.camera, canvas);
       this.controls.enableDamping = true;
-      this.controls.enablePan = false;
+      this.controls.enablePan = true;
       this.controls.enableZoom = true;
       this.controls.enableRotate = true;
       

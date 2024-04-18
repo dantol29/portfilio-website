@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	overflow-x: hidden;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.webgl {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#popup {
+	color: rgb(0, 0, 0);
+	z-index: 2;
+	position: relative;
+	display: flex;
+	font-size: 5px; /* Text size */
+	text-align: center; /* Centered text */
+}
+
+nav a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: 4rem;
+};
+
+#country-name {
+    font-weight: bold; /* Makes country name bold */
+}
+  
