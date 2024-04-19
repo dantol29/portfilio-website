@@ -48,13 +48,17 @@ export class Game{
 	render (){
 		this.renderer.render( this.scene, this.camera );
 	}
-	load3D (name, x){
+	load3D (name, x, tripName){
 		return new Promise((resolve, reject) => {
 			const loader = new GLTFLoader();
 			loader.load(
 				name,
 				(gltf) => {
-					this.loadedObjects.push(gltf.scene);
+          const sceneObject = {
+            scene: gltf.scene,
+            name: tripName
+          };
+					this.loadedObjects.push(sceneObject);
 					this.scene.add(gltf.scene);
 					gltf.scene.position.set(x, 0, 0);
 					resolve(gltf.scene); // Resolve with the loaded object

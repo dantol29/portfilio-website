@@ -13,7 +13,7 @@ export function isOverObject(e, game)
 	 let intersects;
 	 let i = 0;
 	 while (game.loadedObjects[i]){
-	 	intersects = game.raycaster.intersectObjects([game.loadedObjects[i]], true);
+	 	intersects = game.raycaster.intersectObjects([game.loadedObjects[i].scene], true);
 	 	if (intersects.length > 0){
 			console.log("%d object", i);
 			break ;
