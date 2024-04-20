@@ -2,13 +2,12 @@
   import { isOverObject } from './utils';
   import gsap from "gsap"
   import * as THREE from 'three';
-  import "./style.css"
+
 
 
   const game = new Game();
   game.render();
-  game.load3D("./italy.glb", 100, "Italy");
-  game.load3D("./spain.glb", 0, "Spain");
+  game.load3D("./test2.gltf", 100, "Italy");
 
   const tl = gsap.timeline({defaults: {duration: 0.5}});
 
@@ -49,7 +48,7 @@
 
   function scaleObject(scaleIn, index)
   {
-    const object = game.loadedObjects[index].scene;
+    const object = game.loadedObjects[index].mesh;
     const newColor = scaleIn ? new THREE.Color(0x99ff99) : new THREE.Color(0xffffff); // Red when scaling in, white when scaling out
     if (scaleIn) {
       isScaling = true;
@@ -58,7 +57,7 @@
         {z: 1.1, x: 1.1, y: 1.1,
           onStart: () => object.traverse(child => {
             if (child.isMesh) child.material.color.set(newColor);}),
-          onComplete: () => { isScaling = false; openPopup(game.loadedObjects[index].name); }
+          onComplete: () => { isScaling = false; openPopup(game.loadedObjects[index].tripName); }
         }
       );
     }

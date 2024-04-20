@@ -8,15 +8,15 @@ export class Game{
       
       // scene
       this.scene = new THREE.Scene();
-      this.scene.background = new THREE.Color('skyblue');
+      this.scene.background = new THREE.Color(0x08121E);
       
       // camera
       const aspectRatio = window.innerWidth / window.innerHeight;
       this.camera = new THREE.PerspectiveCamera( 75, aspectRatio, 0.1, 1000 );
-      this.camera.position.set(0, 0, 170);
+      this.camera.position.set(0, 0, 100);
 
       // light
-      const light = new THREE.DirectionalLight('yellow', 8);
+      const light = new THREE.DirectionalLight('white', 8);
       light.position.set(10, 10, 10);
       this.scene.add(light);
 
@@ -54,13 +54,19 @@ export class Game{
 			loader.load(
 				name,
 				(gltf) => {
-          const sceneObject = {
-            scene: gltf.scene,
-            name: tripName
-          };
-					this.loadedObjects.push(sceneObject);
 					this.scene.add(gltf.scene);
 					gltf.scene.position.set(x, 0, 0);
+          gltf.scene.traverse((child) => { // Use arrow function here
+            if (child.isMesh) {
+              const meshObject = {
+                mesh: child,
+                name: tripName
+              };
+              this.loadedObjects.push(meshObject); // 'this' now correctly refers to the gameClass instance
+              if (child.name == "Map-2-Portugalstl" || child.name == "Map-6-Italystl")
+                child.material.color.set(0xFFEC9E);
+            }
+          });
 					resolve(gltf.scene); // Resolve with the loaded object
 				},
 				undefined,

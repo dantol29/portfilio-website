@@ -3,30 +3,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link href="./output.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@0.7.0/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body>
-    <canvas class="webgl"></canvas>
-    <div id="popup" class="relative h-32 w-32 inset-x-0 inset-x-0 bottom-0 z-50">
-      <div class="bg-white shadow-lg rounded-t-lg p-4">
-        <h2 class="text-xl font-semibold text-gray-800 mb-2">It</h2>
-        <ul class="text-gray-700">
-          <li class="mb-2"><strong>Date:</strong> 15.06-19.06.24</li>
-          <li class="mb-2"><strong>Availability:</strong> 5 spots left</li>
-        </ul>
-        <ul class="text-gray-700">
-          <li class="mb-2"><strong>Date:</strong> 15.06-19.06.24</li>
-          <li class="mb-2"><strong>Availability:</strong> 5 spots left</li>
-        </ul>
-        <ul class="text-gray-700">
-          <li class="mb-2"><strong>Date:</strong> 15.06-19.06.24</li>
-          <li class="mb-2"><strong>Availability:</strong> 5 spots left</li>
-        </ul>
+  <body >
+  
+
+    <div class="relative z-10" style="height: 100vh;">
+      <!-- Canvas to fill the entire container -->
+      <canvas class="webgl absolute top-0"></canvas>
+
+      <!-- Navbar with fixed positioning at the top of the screen -->
+      <div class="fixed bottom-0 w-full z-50 bg-white shadow-2xl p-4">
+        <nav class="max-w-6xl mx-auto flex justify-between items-center">
+          <a href="#" class="text-xl font-bold text-blue-600">Logo</a>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-800 hover:text-blue-500 font-medium p-2 transition duration-300 ease-in-out">Home</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500 font-medium p-2 transition duration-300 ease-in-out">About</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500 font-medium p-2 transition duration-300 ease-in-out">Services</a>
+            <a href="#" class="text-gray-800 hover:text-blue-500 font-medium p-2 transition duration-300 ease-in-out">Contact</a>
+          </div>
+        </nav>
       </div>
-    </div>
+
+      <!-- Popup with fixed positioning to overlay at the bottom of the screen -->
+      <div id="popup" class="fixed inset-x-0 bottom-4 z-40 p-4 bg-white shadow-lg rounded-t-lg max-w-xl mx-auto">
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">Italy</h2>
+          <ul class="text-gray-700">
+              <li class="mb-2"><strong>Date:</strong> 15.06-19.06.24</li>
+              <li class="mb-2"><strong>Availability:</strong> 5 spots left</li>
+          </ul>
+          <!-- Additional content if needed -->
+      </div>
+  </div>
     
     
-    
-    <script type="module" src="./main.js"></script>
+  <script type="module" src="./main.js"></script>
   </body>
 </html>
